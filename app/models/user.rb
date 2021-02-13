@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :reviews
+
   SIZES = ['small', 'med-small', 'medium', 'med-large', 'large']
   validates :dog_name, presence: true
   validates :owner_name, presence: true

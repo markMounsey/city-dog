@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_02_13_150638) do
-
+ActiveRecord::Schema.define(version: 2021_02_13_155106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +62,18 @@ ActiveRecord::Schema.define(version: 2021_02_13_150638) do
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
+  create_table "venuetags", force: :cascade do |t|
+    t.bigint "venue_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_venuetags_on_tag_id"
+    t.index ["venue_id"], name: "index_venuetags_on_venue_id"
+  end
+
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "venues"
   add_foreign_key "venues", "users"
+  add_foreign_key "venuetags", "tags"
+  add_foreign_key "venuetags", "venues"
 end

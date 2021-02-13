@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :venues
+  has_one_attached :photo
 
   SIZES = ['small', 'med-small', 'medium', 'med-large', 'large']
   validates :dog_name, presence: true

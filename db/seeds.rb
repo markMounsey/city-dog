@@ -35,7 +35,12 @@ puts "creating users"
 end
 puts "#{User.count} users created!"
 
+venue_addresses = []
 
 
 venue_url = "https://www.gelbeseiten.de/Suche/Restaurants/K%C3%B6ln?umkreis=5232"
-venue_addresses = []
+html_file = open(venue_url).read
+html_doc = Nokogiri::HTML(html_file)
+
+# cards = html_doc.search('.mod .mod-Treffer')
+

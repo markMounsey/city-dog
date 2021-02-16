@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require 'open-uri'
+require 'nokogiri'
 
 puts "Cleaning database, start fresh"
 User.destroy_all
@@ -33,3 +34,8 @@ puts "creating users"
   dog.save!
 end
 puts "#{User.count} users created!"
+
+
+
+venue_url = "https://www.gelbeseiten.de/Suche/Restaurants/K%C3%B6ln?umkreis=5232"
+venue_addresses = []

@@ -10,12 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_02_13_155106) do
+ActiveRecord::Schema.define(version: 2021_02_16_200423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -36,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_155106) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_155106) do
     t.string "size"
     t.text "description"
     t.string "owner_name"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

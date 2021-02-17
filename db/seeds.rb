@@ -12,6 +12,7 @@ require 'nokogiri'
 puts "Cleaning database, start fresh"
 User.destroy_all
 
+### CREATE USERS ###
 puts "creating users"
 20.times do
   full_name = Faker::Name.name.split(' ')
@@ -34,13 +35,21 @@ puts "creating users"
   dog.save!
 end
 puts "#{User.count} users created!"
+#####################
 
+
+### CREATE VENUES ###
 venue_addresses = []
-
-
 venue_url = "https://www.gelbeseiten.de/Suche/Restaurants/K%C3%B6ln?umkreis=5232"
 html_file = open(venue_url).read
 html_doc = Nokogiri::HTML(html_file)
 
-# cards = html_doc.search('.mod .mod-Treffer')
+addresses = html_doc.search('.mod-AdresseKompakt > p')
+venue_addresses = []
+addresses.each do |address|
+  clean_address = address.text.split(' ').each(&:strip!).join(' ').gsub(/Köln.*/, 'Köln')
+  venue_addresses << clean_address
+end
+venue_addresses.select! { |venue| venue_addresses.index(venue).even? }.uniq!
+venue_addresses
 

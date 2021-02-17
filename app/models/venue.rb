@@ -5,7 +5,7 @@ class Venue < ApplicationRecord
   has_many :venuetags, dependent: :destroy
   has_many :tags, through: :venuetags
 
-  CATEGORIES = ['cafe', 'restaurant', 'bar', 'park']
+  CATEGORIES = ['cafe', 'restaurant', 'bar']
   validates :name, presence: true
   validates :address, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }

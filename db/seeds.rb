@@ -56,12 +56,8 @@ addresses_html.each do |address|
   venue_addresses << clean_address
 end
 venue_addresses.select! { |venue| venue_addresses.index(venue).even? }.uniq!
-puts "addresses aquired:"
-puts venue_addresses
 puts "------------------------------"
-
 puts "creating those ven-ven-venues!"
-puts "------------------------------"
 # create and save the venues
 categories = ['cafe', 'restaurant', 'bar']
 venue_addresses.each do |address|
@@ -79,9 +75,38 @@ venue_addresses.each do |address|
     i += 1
   end
   venue.save!
-  puts "The #{venue.category} named #{venue.name} at #{venue.address} has been added by the user: #{venue.user.dog_name} there are #{venue.photos.count} photos with this venue"
 end
 puts "------------------------------"
-puts "There are #{Venue.count}"
-####################
+puts "There are #{Venue.count} venues"
+######################
+
+### CREATE REVIEWS AND TAGS###
+tag_names = ['waterbowls', 'dogtreats', 'friendly', 'warm', 'humanlikesfood']
+puts "creating 3 reviews and 2 tags for each venue"
+venues = Venue.all
+venues.each do |venue|
+  2.times do
+    venuetag = Venuetag.new
+    venuetag.venue = venue
+    tag = Tag.create!(name: tag_names.sample)
+    venuetag.tag = tag
+    venuetag.save!
+  end
+
+  i = 1
+  3.times do
+    review = Review.new(
+      rating: (3..5).to_a.sample,
+      comment: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."
+    )
+    review.venue = venue
+    review.user = users.sample
+    review_pic_url = URI.open("https://source.unsplash.com/500x400/?#{review.user.breed}")
+    review.photo.attach(io: review_pic_url, filename: "#{venue.name}_review#{i}.png", content_type: 'image/png')
+    review.save!
+    i += 1
+  end
+end
+reviews = Review.all
+puts "#{reviews.count} reviews were created and 2 tags per venue"
 

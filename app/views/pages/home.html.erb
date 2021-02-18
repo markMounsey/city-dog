@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1601758004484-733647916908?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);">
+  <div class="container">
+    <div class="d-flex justify-content-center row">
+      <div class="banner-content">
+        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+          <div class="search-form-control form-group">
+            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        <% end %>
+        <%= link_to "All venues", "#", class: "btn-block btn-wide" %>
+      </div>
+    </div>
+  </div>
+</div>
+

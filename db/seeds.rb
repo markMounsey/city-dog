@@ -109,4 +109,4 @@ venues.each do |venue|
 end
 reviews = Review.all
 puts "#{reviews.count} reviews were created and 2 tags per venue"
-
+################################

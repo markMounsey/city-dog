@@ -34,7 +34,7 @@ puts "--------------"
   dog_pic_url = URI.open("https://source.unsplash.com/500x400/?#{dog.breed}")
   dog.photo.attach(io: dog_pic_url, filename: "#{dog.dog_name}_#{dog.breed}.png", content_type: 'image/png')
   dog.save!
-  puts "#{dog.dog_name} has been created!"
+  puts "#{dog.dog_name} who is a #{dog.size} #{dog.breed} has been created!"
 end
 puts "--------------"
 puts "#{User.count} users were created."
@@ -45,7 +45,6 @@ users = User.all
 ### CREATE VENUES ###
 # first scrape the addresses
 puts "scraping for venue addresses"
-venue_addresses = []
 venue_url = "https://www.gelbeseiten.de/Suche/Restaurants/K%C3%B6ln?umkreis=5232"
 html_file = open(venue_url).read
 html_doc = Nokogiri::HTML(html_file)
@@ -67,20 +66,22 @@ puts "------------------------------"
 categories = ['cafe', 'restaurant', 'bar']
 venue_addresses.each do |address|
   venue = Venue.new(
-    name: Faker::Restaurant.name,
+    name: Faker::Restaurant.unique.name,
     address: address,
     category: categories.sample,
     description: Faker::Restaurant.description
   )
   venue.user = users.sample
-  venue_pic_url = URI.open("https://source.unsplash.com/500x400/?#{venue.category}")
   i = 1
   5.times do
+    venue_pic_url = URI.open("https://source.unsplash.com/500x400/?#{venue.category}")
     venue.photos.attach(io: venue_pic_url, filename: "#{venue.name}#{i}.png", content_type: 'image/png')
     i += 1
   end
   venue.save!
-  puts "The #{venue.category} named #{venue.name} at #{venue.address} has been added by the user: #{venue.user}"
+  puts "The #{venue.category} named #{venue.name} at #{venue.address} has been added by the user: #{venue.user.dog_name} there are #{venue.photos.count} photos with this venue"
 end
+puts "------------------------------"
+puts "There are #{Venue.count}"
 ####################
 

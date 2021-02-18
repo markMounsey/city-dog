@@ -35,6 +35,11 @@
 yarn-debug.log*
 .yarn-integrity
 .env*
+
+# Ignore Vendor files
 /vendor
+
+# Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+

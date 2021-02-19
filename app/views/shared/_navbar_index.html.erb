@@ -1,12 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="d-flex justify-content-end w-100">
+  <div class= "d-flex justify-content-between w-100 mt-2 mb-3">
+    <%= link_to "Back", "#", class: "link" %>
+    <h2>Venues</h2>
     <button class="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="custom-toggler navbar-toggler-icon"></span>
     </button>
-  </div>
-  <div>
-    <h1>CityDog</h1>
-    <p>For the dog that likes a day out as much as you</p>
+  </div>  
+  <div class= "w-100">
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+      <% end %>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -2,9 +2,7 @@
   background-size: cover;
   background-position: center;
   background-position: 70% 30%;
-  // height: calc(100vh-70px);
-  // background-size: 100% auto;
-  height: 100vh;
+  height: calc(100vh - 200px);
 }
 
 .banner h1 {
@@ -24,12 +22,10 @@
 
 
 .banner-content {
-  // padding-top: 150px 0;
   display: flex;
   width: 90%;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
-  // align-items: center;
+  height: calc(100vh - 200px);
 }
 

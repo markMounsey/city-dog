@@ -1,12 +1,40 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $verdigris;
+  height: 150px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 36px;
+  color: white;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.navbar-lewagon h2 {
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  // margin-bottom: 28px;
+}
+
+
+.navbar-lewagon p {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: white;
+} 
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }

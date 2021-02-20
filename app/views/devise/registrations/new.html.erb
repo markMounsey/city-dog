@@ -1,11 +1,12 @@
-<ul class="list-inline">
-  <li class="list-inline-item">
+<div class="d-flex justify-content-between  p-5">
+  <div></div>
+  <div>
     <h2 class="bittersweet-heading ">Sign Up</h2>
-  </li>
-  <li class="list-inline-item">
+  </div>
+  <div class="float-right">
     <%= render "devise/shared/links" %>
-  </li>
-</ul>
+  </div>
+</div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>

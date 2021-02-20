@@ -9,7 +9,12 @@ class VenuesController < ApplicationController
         venue.reviews.map { |review| review.rating }
       end
     end
+    @markers = @venues.geocoded.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
+      }
+    end
   end
-
-
 end

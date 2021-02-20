@@ -1,4 +1,11 @@
-<h2>Sign up</h2>
+<ul class="list-inline">
+  <li class="list-inline-item">
+    <h2 class="bittersweet-heading ">Sign Up</h2>
+  </li>
+  <li class="list-inline-item">
+    <%= render "devise/shared/links" %>
+  </li>
+</ul>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -20,8 +27,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn-block btn-wide" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

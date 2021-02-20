@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :reviews
-  has_many :venues
+  has_many :venues, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
   SIZES = ['small', 'med-small', 'medium', 'med-large', 'large']

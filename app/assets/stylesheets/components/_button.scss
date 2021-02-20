@@ -1,4 +1,4 @@
-.btn-wide {
+.btn-lp {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
@@ -7,9 +7,25 @@
   text-align: center;
 }
 
-.btn-wide:hover {
+.btn-lp:hover {
   background: $white;
   color: rgb(0, 0, 0);
   text-decoration: none;
   border: 2px solid $bittersweet;
+}
+
+.btn-registration {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $verdigris;
+  transition: background 0.2s ease;
+  text-align: center;
+}
+
+.btn-registration:hover {
+  background: $white;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: 2px solid $verdigris;
 }

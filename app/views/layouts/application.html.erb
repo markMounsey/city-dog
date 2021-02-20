@@ -15,8 +15,8 @@
   <body>
   <% if request.fullpath == "/" %>
     <%= render 'shared/navbar_root' %>
-  <% else request.fullpath.match('') %>
-    <%= render 'shared/navbar' %>
+  <% else request.fullpath.match('venues$') %>
+    <%= render 'shared/navbar_index' %>
   <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>

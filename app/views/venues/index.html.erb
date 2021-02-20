@@ -2,7 +2,7 @@
 <div class="container">
   <% @venues.each_with_index do |venue, index| %>
     <div class="card-venue">
-      <%= cl_image_tag venue.photos.first, crop: :fill %>
+      <%= cl_image_tag venue.photos.first.key, crop: :fill %>
       <div class="card-venue-infos">
         <div>
           <div class="rating-overview">

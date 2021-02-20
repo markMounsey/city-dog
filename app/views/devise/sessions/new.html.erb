@@ -1,4 +1,12 @@
-<h2>Log in</h2>
+<div class="d-flex justify-content-between p-5">
+  <div></div>
+  <div>
+    <h2 class="bittersweet-heading ">Log In</h2>
+  </div>
+  <div class="float-right">
+    <%= link_to "Sign up", new_registration_path(resource_name), class: "registration-font" %>
+  </div>
+</div>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,8 +21,12 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: "btn-block btn-registration" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="d-flex justify-content-center p-2">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "registration-font" %>
+  <% end %>
+</div>

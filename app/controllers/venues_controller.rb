@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_action :find_venue, only: [:show]
   def index
     @venues = policy_scope(Venue).order(created_at: :desc)
     all_venues = Venue.all
@@ -11,5 +12,13 @@ class VenuesController < ApplicationController
     end
   end
 
+  def show
+    authorize @venue
+  end
 
+  private
+
+  def find_venue
+    @venue = Venue.find(params[:id])
+  end
 end

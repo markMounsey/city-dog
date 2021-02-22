@@ -8,9 +8,6 @@
     <% end %>
   </div>
   <div class="review-photo-tgl">
-<!--     make these radio buttons
-    whichever is selected displays
-    the content below -->
     <h3>Reviews</h3>
     <h3>Photos</h3>
   </div>
@@ -27,3 +24,11 @@
     <% end %>
   </div>
 </div>
+
+<!--make these radio buttons
+    whichever is selected displays
+    the content below -->
+<!--form_for(@rev_foto, method: :get, remote: true) do |f| %>
+      f.radio_button 'photos', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
+      f.radio_button 'reviews', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
+ end %> -->

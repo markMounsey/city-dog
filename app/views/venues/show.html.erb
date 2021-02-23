@@ -24,6 +24,9 @@
     <% end %>
   </div>
 </div>
+<%# if policy(Review).create? %>
+  <%= link_to 'Write Review', new_venue_review_path(@venue.id) %>
+<%# end %>
 
 <!--make these radio buttons
     whichever is selected displays

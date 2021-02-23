@@ -1,0 +1,15 @@
+<div class="container">
+<!-- TODO - add the 'Back' link to the navbar -->
+<!--<%= link_to 'Back', venues_path %>-->
+
+  <%= simple_form_for @venue do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :photos, as: :file %>
+    <%= f.association :tags %>
+    <%= f.input :category, collection: Venue::CATEGORIES %>
+    <%= f.button :submit, 'SAVE', class: 'btn-block btn-lp' %>
+  <% end %>
+
+</div>

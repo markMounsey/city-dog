@@ -1,0 +1,15 @@
+<div class="container">
+
+<!--<%= link_to 'Back', venues_path %>-->
+
+  <%= simple_form_for @venue do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
+    <!--<%= f.input :tags %>-->
+    <%= f.input :category %>
+    <%= f.button :submit, class: 'btn btn-lp' %>
+  <% end %>
+
+</div>

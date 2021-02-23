@@ -25,12 +25,18 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    authorize @venue
   end
 
   def create
+    @venue = Venue.new(venue_params)
+    @venue.user = current_user
     authorize @venue
-    @venue = Venue.new(params[:venue])
-    @venue.save
+    if @venue.save
+      redirect_to @venue, notice: "#{@venue.category.upcase} was successfully created."
+    else
+      render :new
+    end
   end
 
   private
@@ -40,6 +46,6 @@ class VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :category, :description, :photo)
+    params.require(:venue).permit(:name, :address, :category, :description, :photos)
   end
 end

@@ -43,6 +43,8 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+gem 'geocoder'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'

@@ -23,9 +23,23 @@ class VenuesController < ApplicationController
     authorize @venue
   end
 
+  def new
+    @venue = Venue.new
+  end
+
+  def create
+    authorize @venue
+    @venue = Venue.new(params[:venue])
+    @venue.save
+  end
+
   private
 
   def find_venue
     @venue = Venue.find(params[:id])
+  end
+
+  def venue_params
+    params.require(:venue).permit(:name, :address, :category, :description, :photo)
   end
 end

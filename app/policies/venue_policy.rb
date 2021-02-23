@@ -7,5 +7,12 @@ class VenuePolicy < ApplicationPolicy
     def show?
       true
     end
+
+    def new?
+    end
+    
+    def create?
+      return true
+    end
   end
 end

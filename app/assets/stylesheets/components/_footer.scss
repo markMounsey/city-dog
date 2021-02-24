@@ -1,7 +1,10 @@
 .foot-bar {
-  height: 50px;
+  height: 56px;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
+  background-color: $light-gray;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }

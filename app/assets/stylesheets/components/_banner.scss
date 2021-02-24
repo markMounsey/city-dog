@@ -1,8 +1,9 @@
 .banner {
   background-size: cover;
-  background-position: center;
-  background-position: 70% 30%;
-  height: calc(100vh - 200px);
+  background-position: 30% 70%;
+  height: calc(100vh - 100px);
+  position: fixed;
+  width: 100%;
 }
 
 .banner h1 {
@@ -26,6 +27,6 @@
   width: 90%;
   flex-direction: column;
   justify-content: center;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 100px);
 }
 

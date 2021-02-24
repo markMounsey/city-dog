@@ -1,5 +1,23 @@
+
+<div class="container">
+  <div class="avatar-large">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, crop: :fill %>
+    <% else %>
+      <img src="https://source.unsplash.com/200x200/?dog" alt="">
+    <% end %>
+  </div>
+</div>    
+
+
+<div class="container">
 <ul class="list-group">
     <li class="list-group-item"><%= @review.rating %></li>
     <li class="list-group-item"><%= @review.comment %></li>
+    <%# <li class="list-group-item"><%= @venue.tags %></li> %>
+    <%# <li class="list-group-item"><%= @venue.name %></li> %>
     <!-- <li class="list-group-item"><%= @review.photo %></li>
 </ul> -->
+</div>
+
+

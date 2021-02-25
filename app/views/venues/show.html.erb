@@ -12,12 +12,12 @@
     <% end %>
   </div>
   <div class="review-photo-tgl">
-    <h3>Reviews</h3>
-    <h3>Photos</h3>
+    <%= link_to "Reviews", class:  %>
+    <%= link_to "Photos", class: %>
   </div>
   <div class="review-photo-dsply">
     <% @venue.reviews.each do |review| %>
-      <div class="notification">
+      <div class="notification active">
         <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
         <div class="notification-content">
           <p><small>14th January</small></p>
@@ -34,10 +34,12 @@
   </div>
 </div>
 
+<!-- Use JS, to toggle between reviews and photos display: hidden -->
+
 <!--make these radio buttons
     whichever is selected displays
     the content below -->
 <!--form_for(@rev_foto, method: :get, remote: true) do |f| %>
-      f.radio_button 'photos', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
-      f.radio_button 'reviews', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
+      f.radio_button 'display', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
+      f.radio_button 'display', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
  end %> -->

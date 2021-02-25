@@ -1,6 +1,6 @@
 <div class="container">
   <div id="map"
-     style="width: 100%; height: 600px;"
+     style="width: 100%; height: 300px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
@@ -8,12 +8,22 @@
     <% if policy(venue).show? %>
       <%= link_to venue_path(venue.id) do  %>
         <div class="card-venue">
-          <%= cl_image_tag venue.photos.first.key, crop: :fill %>
+          <% if venue.photos.attached? %>
+            <%= cl_image_tag venue.photos.first.key, crop: :fill %>
+          <% else%>
+            <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
+          <% end %>
           <div class="card-venue-infos">
             <div>
               <div class="rating-overview">
                 <i class="fas fa-paw"></i>
-                <p class="avg-rating"><%= (@ratings_by_venue[index].sum.to_f / @ratings_by_venue[index].length).round(1) %></p>
+                <p class="avg-rating">
+                  <% if @ratings_by_venue[index].empty? %>
+                    <em>no reviews</em>
+                  <% else %>
+                    <%= (@ratings_by_venue[index].sum.to_f / @ratings_by_venue[index].length).round(1) %>
+                  <% end %>
+                </p>
                 <p>(<%= @ratings_by_venue[index].length %>)</p>
               </div>
               <h2><%= venue.name %></h2>

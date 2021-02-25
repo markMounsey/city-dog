@@ -12,8 +12,8 @@
     <% end %>
   </div>
   <div class="review-photo-tgl">
-    <%= link_to "Reviews", class:  %>
-    <%= link_to "Photos", class: %>
+    <%= link_to 'Reviews', 'javascript:;', id: "reviews" %>
+     <%= link_to 'Photos', 'javascript:;', id: "photos" %>
   </div>
   <div class="review-photo-dsply">
     <% @venue.reviews.each do |review| %>
@@ -33,13 +33,3 @@
     <% end %>
   </div>
 </div>
-
-<!-- Use JS, to toggle between reviews and photos display: hidden -->
-
-<!--make these radio buttons
-    whichever is selected displays
-    the content below -->
-<!--form_for(@rev_foto, method: :get, remote: true) do |f| %>
-      f.radio_button 'display', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
-      f.radio_button 'display', {}, onchange: 'this.form.submit();', class: 'some-css-class' %>
- end %> -->

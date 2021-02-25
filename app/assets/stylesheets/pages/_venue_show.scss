@@ -20,8 +20,10 @@
   display: flex;
   width: 100%;
   border: 1px solid #BDBDBD;
+  padding: 1px;
   border-radius: 4px;
-  h3 {
+  background-color: #E8E8E8;
+  a {
     width: 50%;
     margin: 0;
     font-size: 18px;
@@ -31,6 +33,7 @@
     background: #E8E8E8;
     color: #BDBDBD;
     &:focus {
+      outline: none;
       color: #00AFB9;
       background: white;
     }

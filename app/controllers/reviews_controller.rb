@@ -1,29 +1,14 @@
 class ReviewsController < ApplicationController
+  # before_action :find_review, only: [:create]
   def new
-    @reviews = Review.new
+    @venue = Venue.find(params[:venue_id])
+    @review = Review.new
+    authorize @review
   end
 
-  # # def index
-  # #   @reviews = Review.all
-  # # end
-
-  # def new
-  #   @venue = Venue.find(params[:venue_id])
-  #   @review = current_user.reviews.new
-  #   authorize @review
-  # end
-
-  # def create
-  # end
-
-  # # def edit
-  # # end
-
-  # # def update
-  # # end
-
-  # # def destory
-  # # end
+  def create
+    # authorize @review
+  end
 
   # private
 

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
   end
-  # resources :reviews, only: [:show]
+  resources :reviews, only: [:show]
 end

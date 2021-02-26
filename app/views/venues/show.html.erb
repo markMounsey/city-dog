@@ -35,9 +35,11 @@
       </div>
       <div class="photos hidden">
         <% if @venue.photos.attached? %>
-          <%= cl_image_tag @venue.photos.first.key, crop: :fill %>
+          <% @venue.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill %>
+          <% end %>
         <% else%>
-          <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
+          <em>No photos of this venue have been shared.</em>
         <% end %>
       </div>
   </div>

@@ -12,24 +12,33 @@
     <% end %>
   </div>
   <div class="review-photo-tgl">
-    <%= link_to 'Reviews', 'javascript:;', id: "reviews" %>
-    <%= link_to 'Photos', 'javascript:;', id: "photos" %>
+    <%= link_to 'Reviews', 'javascript:;', id: "reviews-btn" %>
+    <%= link_to 'Photos', 'javascript:;', id: "photos-btn" %>
   </div>
-  <div class="review-photo-dsply">
-    <% @venue.reviews.each do |review| %>
-      <div class="notification active">
-        <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
-        <div class="notification-content">
-          <p><small>14th January</small></p>
-          <!-- data migration to add review title -->
-          <h2>Title goes here<!-- review.title --></h2>
-          <p><%= review.comment %></p>
-        </div>
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
+    <div class="review-photo-dsply">
+      <div class="reviews">
+        <% @venue.reviews.each do |review| %>
+          <div class="notification">
+            <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
+            <div class="notification-content">
+              <p><small>14th January</small></p>
+              <!-- data migration to add review title -->
+              <h2>Title goes here<!-- review.title --></h2>
+              <p><%= review.comment %></p>
+            </div>
+  <!--      <div class="notification-actions">
+              <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+              <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+            </div> -->
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      <div class="photos hidden">
+        <% if @venue.photos.attached? %>
+          <%= cl_image_tag @venue.photos.first.key, crop: :fill %>
+        <% else%>
+          <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
+        <% end %>
+      </div>
   </div>
 </div>

@@ -1,16 +1,22 @@
 const toggleDisplay = () => {
-  const reviews = document.getElementById('reviews')
-  const photos = document.getElementById('photos')
-  console.log(reviews);
-  console.log(photos);
+  // const toggleBar = document.querySelector('.review-photo-tgl');
+  const reviewsBtn = document.getElementById('reviews-btn');
+  const photosBtn = document.getElementById('photos-btn');
 
-  if(reviews && photos) {
-    if (document.activeElement != reviews && document.activeElement != photos) {
-      reviews.focus();
-    }
+  const reviewsList = document.querySelector('.reviews');
+  const photosList = document.querySelector('.photos');
 
-  }
+  reviewsBtn.focus();
 
+  photosBtn.addEventListener('click', () => {
+    reviewsList.classList.add("hidden");
+    photosList.classList.remove("hidden");
+  });
+
+  reviewsBtn.addEventListener('click', () => {
+    reviewsList.classList.remove("hidden");
+    photosList.classList.add("hidden");
+  });
 }
 
 export { toggleDisplay };

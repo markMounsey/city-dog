@@ -19,7 +19,6 @@ const toggleDisplay = () => {
       photosList.classList.add("hidden");
     });
   }
-
 }
 
 export { toggleDisplay };

@@ -21,7 +21,8 @@
           <div class="notification">
             <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
             <div class="notification-content">
-              <p><small>14th January</small></p>
+             <!--  data migration to add time of review -->
+              <p><small>14th January<!-- review.time --></small></p>
               <!-- data migration to add review title -->
               <h2>Title goes here<!-- review.title --></h2>
               <p><%= review.comment %></p>

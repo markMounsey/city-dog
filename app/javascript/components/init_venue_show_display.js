@@ -3,7 +3,14 @@ const toggleDisplay = () => {
   const photos = document.getElementById('photos')
   console.log(reviews);
   console.log(photos);
-  reviews.focus();
+
+  if(reviews && photos) {
+    if (document.activeElement != reviews && document.activeElement != photos) {
+      reviews.focus();
+    }
+
+  }
+
 }
 
 export { toggleDisplay };

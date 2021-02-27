@@ -11,17 +11,17 @@
   padding: 0 16px;
 }
 
-.date-rev {
+.name-date-rev {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-start;
 
   .paw {
     color: $bittersweet;
     font-size: 12px;
     margin-top: 2px;
     margin-bottom: 2px;
-    margin-right: 16px;
+    margin-right: 4px;
   }
 }
 

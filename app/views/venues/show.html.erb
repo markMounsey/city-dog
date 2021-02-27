@@ -28,13 +28,14 @@
               <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
               <div class="notification-content">
                <!--  data migration to add time of review -->
-                <div class="date-rev">
-                  <div class="paw">
-                    <% review.rating.times do %>
-                      <i class="fas fa-paw"></i>
-                    <% end %>
-                  </div>
-                  <div><small>14th January</small><!-- review.time --></div>
+                <div class="name-date-rev">
+                  <div>by: <%= @venue.user.dog_name %></div>
+                    <div class="paw">
+                      <% review.rating.times do %>
+                        <i class="fas fa-paw"></i>
+                      <% end %>
+                    </div>
+                    <div><small>14th January</small><!-- review.time --></div>
                 </div>
                 <p class='review-comment'><%= review.comment %></p>
               </div>

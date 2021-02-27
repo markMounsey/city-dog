@@ -51,6 +51,12 @@
   }
 }
 
+.active {
+  outline: none;
+  color: #00AFB9;
+  background: white;
+}
+
 .hidden {
   display: none;
 }

@@ -1,7 +1,7 @@
 <div class="navbar navbar-lewagon venue-review-show">
   <div class= "d-flex justify-content-between w-100 mt-2 mb-3">
     <%= link_to 'Back', :back, class: "link" %>
-    <h2>Venues</h2>
+    <h2><%= @venue.name %></h2>
     <% if user_signed_in? %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>

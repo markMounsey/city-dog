@@ -24,7 +24,7 @@
                     <%= (@ratings_by_venue[index].sum.to_f / @ratings_by_venue[index].length).round(1) %>
                   <% end %>
                 </p>
-                <p>(<%= @ratings_by_venue[index].length %>)</p>
+                <p>(<%= @ratings_by_venue[index].length %> reviews)</p>
               </div>
               <h2><%= venue.name %></h2>
               <div class="tags">

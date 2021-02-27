@@ -1,12 +1,35 @@
-.show-img img {
-  width: 100%;
-  height: 216px;
-  object-fit: cover;
+.hold-here {
+  position: relative;
+  top: -105px;
+  z-index: 2;
+}
+
+.show-img {
+  img {
+    width: 100%;
+    height: 216px;
+    border: 5px solid white;
+    object-fit: cover;
+  }
+}
+
+.info-box {
+  p#adrs {
+    border-bottom: 3px solid $bittersweet;
+    padding: 4px;
+  }
+
 }
 
 .tags-box {
+  margin-top: 8px;
   display: flex;
-  padding: 8px;
+  align-items: flex-start;
+
+  #add-new {
+    border: 2px solid $bittersweet;
+    color: #0E0000;
+  }
   .tag {
     padding: 4px;
     border-radius: 4px;
@@ -32,11 +55,6 @@
     text-align: center;
     background: #E8E8E8;
     color: #BDBDBD;
-    // &:focus {
-    //   outline: none;
-    //   color: #00AFB9;
-    //   background: white;
-    // }
   }
   a.active {
     color: #00AFB9;

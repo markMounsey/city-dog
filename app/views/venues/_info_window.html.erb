@@ -1,2 +1,7 @@
-<h2><%= venue.name %></h2>
-<p><%= venue.address %></p>
+<div class="container">
+  <h2><%= venue.name %></h2>
+  <p><%= venue.address %></p>
+  <p><%= venue.category %></p>
+  <%= link_to "SEE VENUE", venue_path(venue.id), class: "btn-block btn-lp" %>
+</div>
+

@@ -32,11 +32,15 @@
     text-align: center;
     background: #E8E8E8;
     color: #BDBDBD;
-    &:focus {
-      outline: none;
-      color: #00AFB9;
-      background: white;
-    }
+    // &:focus {
+    //   outline: none;
+    //   color: #00AFB9;
+    //   background: white;
+    // }
+  }
+  a.active {
+    color: #00AFB9;
+    background: white;
   }
 }
 
@@ -51,11 +55,6 @@
   }
 }
 
-.active {
-  outline: none;
-  color: #00AFB9;
-  background: white;
-}
 
 .hidden {
   display: none;

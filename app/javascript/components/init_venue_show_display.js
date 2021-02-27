@@ -7,14 +7,16 @@ const toggleDisplay = () => {
   const photosList = document.querySelector('.photos');
 
   if(reviewsBtn) {
-    reviewsBtn.focus();
-
     photosBtn.addEventListener('click', () => {
+      reviewsBtn.classList.remove("active");
+      photosBtn.classList.add("active");
       reviewsList.classList.add("hidden");
       photosList.classList.remove("hidden");
     });
 
     reviewsBtn.addEventListener('click', () => {
+      reviewsBtn.classList.add("active")
+      photosBtn.classList.remove("active");
       reviewsList.classList.remove("hidden");
       photosList.classList.add("hidden");
     });

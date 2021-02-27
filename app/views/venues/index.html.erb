@@ -38,5 +38,10 @@
       <% end %>
     <% end %>
   <% end %>
+  <div>
+    <% if user_signed_in? %>
+      <%= render 'shared/footer' %>
+    <% end %>
+  </div>
 </div>
 

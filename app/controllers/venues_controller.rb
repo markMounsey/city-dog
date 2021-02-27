@@ -1,5 +1,7 @@
 class VenuesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :find_venue, only: [:show]
+
   def index
     @venues = policy_scope(Venue).order(created_at: :desc)
     @all_venues = Venue.all

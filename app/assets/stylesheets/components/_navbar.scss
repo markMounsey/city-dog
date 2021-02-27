@@ -35,7 +35,7 @@
 
 .custom-toggler.navbar-toggler {
   border-color: white;
-} 
+}
 
 a {
   color: white;
@@ -47,4 +47,9 @@ a {
 a:hover {
   color: $verdigris;
   text-decoration: none;
+}
+
+.venue-review-show {
+  height: 20vh;
+  align-items: start;
 }

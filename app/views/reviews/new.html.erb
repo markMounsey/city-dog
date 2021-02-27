@@ -1,0 +1,6 @@
+<%= simple_form_for [ @venue, @review ] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.input :photo %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>

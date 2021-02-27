@@ -1,6 +1,12 @@
-<%= simple_form_for [ @venue, @review ] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :comment %>
-  <%= f.input :photo %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for [ @venue, @review ] do |f| %>
+    <div class="form-inputs">
+      <%= f.input :rating %>
+      <%= f.input :comment %>
+      <%= f.input :photo, as: :file %>
+      <div class="form-actions">
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

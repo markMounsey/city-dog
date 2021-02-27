@@ -1,5 +1,40 @@
-<ul class="list-group">
-    <li class="list-group-item"><%= @review.rating %></li>
-    <li class="list-group-item"><%= @review.comment %></li>
-    <!-- <li class="list-group-item"><%= @review.photo %></li>
-</ul> -->
+<div class="container container-bottom">
+  <div class="hold-here">
+    <div class="d-flex justify-content-center w-100 mt-2 mb-3">
+      <% if @review.user.photo.attached? %>
+        <%= cl_image_tag @review.user.photo.key, width: 200, height: 200, crop: :fill, class: "avatar-bordered" %>
+      <% else %>
+        <img src="https://source.unsplash.com/200x200/?dog" alt="">
+      <% end %>
+    </div>    
+
+    <div class="container">
+      <div class="paw">
+        <% @review.rating.times do %>
+          <i class="fas fa-paw"></i>
+        <% end %>
+      </div>
+      <div class="show-text">
+        <h2><%= @review.venue.name %></h2>
+        <p><%= @review.comment %></p>
+      </div>
+      <div class="show-img">
+        <% if @review.photo.attached? %>
+          <%= cl_image_tag @review.photo.key, crop: :fill %>
+        <% else %>
+          <img src="https://source.unsplash.com/200x200/?restaurant" alt="">
+        <% end %>
+      </div>
+      <div class="tags-box">
+        <% @review.venue.tags.each do |tag| %>
+          <p class="tag">#<%= tag.name %></p>
+        <% end %>
+      </div class="container foot-bar">
+        <% if policy(Review).edit? %>
+          <%= link_to "UPDATE", edit_review_path, class: "btn-block btn-lp" %>
+        <% else %>
+          <%= link_to "ADD ANOTHER REVIEW", new_venue_review_path(@review.venue.id), class: "btn-block btn-lp" %> 
+        <% end %>
+      </div>
+  </div>
+</div>

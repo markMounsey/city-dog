@@ -12,13 +12,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
-  <% if request.fullpath == "/" %>
-    <%= render 'shared/navbar_root' %>
-  <% else request.fullpath.match('venues$') %>
-    <%= render 'shared/navbar_index' %>
-  <% end %>
+<body>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <% if params[:controller].match?(/devise/) %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    <% else %>
+        <% if request.fullpath == "/" %>
+          <%= render 'shared/navbar_root' %>
+        <% else request.fullpath.match('venues$') %>
+          <%= render 'shared/navbar_index' %>
+        <% end %>
+        <%= yield %>
+    <% end %>
   </body>
-</html>

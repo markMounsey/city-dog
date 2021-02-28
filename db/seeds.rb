@@ -89,23 +89,19 @@ venues.each do |venue|
   2.times do
     venuetag = Venuetag.new
     venuetag.venue = venue
-    # tag = Tag.new(name: tag_names.sample)
-    # tag_names.delete(tag.name)
-    # tag.save!
     venuetag.tag = tags.sample
     if venue.tags.include?(venuetag.tag)
       i = tags.index(venuetag.tag)
       venuetag.tag = i < tags.length ? tags[i + 1] : tags.first
     end
     venuetag.save!
-    end
   end
 
   i = 1
   3.times do
     review = Review.new(
       rating: (3..5).to_a.sample,
-      comment: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."
+      comment: Faker::Restaurant.review
     )
     review.venue = venue
     review.user = users.sample

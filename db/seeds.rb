@@ -11,6 +11,7 @@ require 'nokogiri'
 
 puts "Cleaning database, start fresh"
 User.destroy_all
+Tag.destroy_all
 
 ### CREATE USERS ###
 puts "creating users"
@@ -83,11 +84,11 @@ puts "There are #{Venue.count} venues"
 ### CREATE REVIEWS AND TAGS###
 puts "creating 3 reviews and 2 tags for each venue"
 venues = Venue.all
-tags = ['$', '$$', '$$$', 'waterbowls', 'dogtreats', 'friendly', 'warm', 'humanlikesfood', 'crowded', 'cozy']
+tags = ['waterbowls', 'dogtreats', 'friendly', 'warm', 'humanlikesfood', 'crowded', 'cozy']
 tags.map! { |tag| Tag.create!(name: tag) }
 tags = Tag.all
 puts "#{tags.count} tags have been created"
-tags.each { |tag| puts "#{tag.name}" }
+tags.each { |tag| puts tag.name.to_s }
 
 venues.each do |venue|
   2.times do
@@ -96,7 +97,7 @@ venues.each do |venue|
     venuetag.tag = tags.sample
     if venue.tags.include?(venuetag.tag)
       i = tags.index(venuetag.tag)
-      venuetag.tag = i < tags.length ? tags[i + 1] : tags.first
+      venuetag.tag = i < (tags.length - 1) ? tags[i + 1] : tags.first
     end
     venuetag.save!
   end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :venues, only: [:index, :show, :new, :create] do
     resources :reviews, only: [:new, :create]
-    resources :venuetags, only: [:create]
+    resources :venuetags, only: :create
   end
   resources :reviews, only: [:show]
 end

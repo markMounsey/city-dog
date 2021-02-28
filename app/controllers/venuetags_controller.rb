@@ -1,6 +1,6 @@
 class VenuetagsController < ApplicationController
   def create
-    @venue = Venue.find(params[:id])
+    @venue = Venue.find(params[:venue_id])
     @venuetag = Venuetag.new(params_ventag)
     @venuetag.venue = @venue
     if @venuetag.save

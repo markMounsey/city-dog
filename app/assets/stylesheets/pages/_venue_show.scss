@@ -14,14 +14,6 @@
   }
 }
 
-.info-box {
-  p#adrs {
-    border-bottom: 3px solid $bittersweet;
-    padding: 4px;
-  }
-
-}
-
 .tags-box {
   margin-top: 8px;
   display: flex;
@@ -37,6 +29,13 @@
     background-color: rgba(0, 175, 185, .5);
     margin-right: 8px;
     font-size: 14px;
+  }
+}
+
+.info-box {
+  p#adrs {
+    border-bottom: 3px solid $bittersweet;
+    padding: 4px;
   }
 }
 

@@ -84,15 +84,21 @@ puts "There are #{Venue.count} venues"
 puts "creating 3 reviews and 2 tags for each venue"
 venues = Venue.all
 venues.each do |venue|
-  tag_names = ['waterbowls', 'dogtreats', 'friendly', 'warm', 'humanlikesfood']
+  tags = ['$', '$$', '$$$', 'waterbowls', 'dogtreats', 'friendly', 'warm', 'humanlikesfood', 'crowded', 'cozy']
+  tags.map! { |tag| Tag.create(name: tag) }
   2.times do
     venuetag = Venuetag.new
     venuetag.venue = venue
-    tag = Tag.new(name: tag_names.sample)
-    tag_names.delete(tag.name)
-    tag.save!
-    venuetag.tag = tag
+    # tag = Tag.new(name: tag_names.sample)
+    # tag_names.delete(tag.name)
+    # tag.save!
+    venuetag.tag = tags.sample
+    if venue.tags.include?(venuetag.tag)
+      i = tags.index(venuetag.tag)
+      venuetag.tag = i < tags.length ? tags[i + 1] : tags.first
+    end
     venuetag.save!
+    end
   end
 
   i = 1

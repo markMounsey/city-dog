@@ -23,6 +23,7 @@ class VenuesController < ApplicationController
 
   def show
     authorize @venue
+    @venuetag = Venuetag.new
   end
 
   def new

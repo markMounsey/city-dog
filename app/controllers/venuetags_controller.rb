@@ -2,6 +2,7 @@ class VenuetagsController < ApplicationController
   def create
     @venue = Venue.find(params[:venue_id])
     @venuetag = Venuetag.new(params_ventag)
+    authorize @venuetag
     @venuetag.venue = @venue
     if @venuetag.save
       redirect_to venue_path(@venue)

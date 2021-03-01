@@ -8,9 +8,13 @@
       <% end %>
     </div>
     <div class="tags-box">
-      <div>
-        <%= link_to 'Add Tag', 'javascript:;', id: "add-new", class: "tag" %>
-        <div class="form-box"><%= render './venuetags/form' %></div>
+      <div id="add-new", class="tag">
+        <%= link_to 'Add Tag', 'javascript:;' %>
+        <div class="form-box">
+          <% if policy(Venuetag).create? %>
+            <%= render './venuetags/form' %>
+          <% end %>
+        </div>
       </div>
       <% @venue.tags.each do |tag| %>
         <p class="tag">#<%= tag.name %></p>

@@ -9,8 +9,8 @@
     </div>
     <div class="tags-box">
       <div id="add-new", class="tag">
-        <%= link_to 'Add Tag', 'javascript:;' %>
-        <div class="form-box">
+        <%= link_to 'Add Tag', 'javascript:;', id: 'tag-btn' %>
+        <div id='form-box'class="hidden">
           <% if policy(Venuetag).create? %>
             <%= render './venuetags/form' %>
           <% end %>

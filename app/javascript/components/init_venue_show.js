@@ -23,18 +23,20 @@ const toggleDisplay = () => {
 }
 
 const showAddTagForm = () => {
-  const addBtn = document.getElementById('add-new');
+
+  // check to make sure the right elements are being selected!!
+  // const addBtn = document.getElementById('add-new');
   const tagBtn = document.getElementById('tag-btn');
   const formBox = document.getElementById('form-box');
-  const submitBtn = document.getElementById('add-tag');
+  const form = document.querySelector('.form-inline');
 
-  if(addBtn) {
-    addBtn.addEventListener('click', () => {
+  if(tagBtn) {
+    tagBtn.addEventListener('click', () => {
       tagBtn.classList.toggle('hidden');
       formBox.classList.toggle('hidden');
     });
 
-    submitBtn.addEventListener('click', () => {
+    form.addEventListener('submit', () => {
       formBox.classList.toggle('hidden');
       tagBtn.classList.toggle('hidden');
     });

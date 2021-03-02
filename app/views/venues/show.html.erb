@@ -16,7 +16,7 @@
           <% end %>
         </div>
       </div>
-      <% @venue.tags.each do |tag| %>
+      <% @venue.tags.sort.reverse.each do |tag| %>
         <p class="tag">#<%= tag.name %></p>
       <% end %>
     </div>

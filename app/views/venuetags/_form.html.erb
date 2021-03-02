@@ -1,4 +1,4 @@
-<%= simple_form_for [@venue, @venuetag], html: { class: 'form-inline' } do |f| %>
+<%= simple_form_for [@venue, @venuetag], remote: true, html: { class: 'form-inline' } do |f| %>
   <%= f.association :tag, label: false %>
   <%= f.submit "Add" %>
 <% end %>

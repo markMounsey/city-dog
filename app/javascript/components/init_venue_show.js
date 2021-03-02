@@ -1,5 +1,4 @@
 const toggleDisplay = () => {
-  // const toggleBar = document.querySelector('.review-photo-tgl');
   const reviewsBtn = document.getElementById('reviews-btn');
   const photosBtn = document.getElementById('photos-btn');
 
@@ -23,4 +22,27 @@ const toggleDisplay = () => {
   }
 }
 
+const showAddTagForm = () => {
+
+  // check to make sure the right elements are being selected!!
+  // const addBtn = document.getElementById('add-new');
+  const tagBtn = document.getElementById('tag-btn');
+  const formBox = document.getElementById('form-box');
+  const form = document.querySelector('.form-inline');
+
+  if(tagBtn) {
+    tagBtn.addEventListener('click', () => {
+      tagBtn.classList.toggle('hidden');
+      formBox.classList.toggle('hidden');
+    });
+
+    form.addEventListener('submit', () => {
+      formBox.classList.toggle('hidden');
+      tagBtn.classList.toggle('hidden');
+    });
+  }
+
+}
+
 export { toggleDisplay };
+export { showAddTagForm };

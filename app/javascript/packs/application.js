@@ -17,9 +17,11 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import { initMapbox } from '../plugins/init_mapbox';
-import { toggleDisplay } from '../components/init_venue_show_display';
+import { toggleDisplay } from '../components/init_venue_show';
+import { showAddTagForm } from '../components/init_venue_show';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   toggleDisplay();
+  showAddTagForm();
 })

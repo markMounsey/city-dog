@@ -1,0 +1,4 @@
+<%= simple_form_for [@venue, @venuetag], remote: true, html: { class: 'form-inline' } do |f| %>
+  <%= f.association :tag, collection: Tag.order('name ASC'), label: false %>
+  <%= f.submit "Add" %>
+<% end %>

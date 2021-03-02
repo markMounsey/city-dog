@@ -8,8 +8,15 @@
       <% end %>
     </div>
     <div class="tags-box">
-      <%= link_to 'Add Tag', 'javascript:;', id: "add-new", class: "tag" %>
-      <% @venue.tags.each do |tag| %>
+      <div id="add-new", class="tag">
+        <%= link_to 'Add Tag', 'javascript:;', id: 'tag-btn' %>
+        <div id='form-box'class="hidden">
+          <% if policy(Venuetag).create? %>
+            <%= render './venuetags/form' %>
+          <% end %>
+        </div>
+      </div>
+      <% @venue.tags.sort.reverse.each do |tag| %>
         <p class="tag">#<%= tag.name %></p>
       <% end %>
     </div>

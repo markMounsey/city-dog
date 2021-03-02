@@ -1,43 +1,45 @@
 <div class="container">
-  <div id="map"
-     style="width: 100%; height: 300px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  <% @venues.each_with_index do |venue| %>
-    <% if policy(venue).show? %>
-      <%= link_to venue_path(venue.id) do  %>
-        <div class="card-venue">
-          <% if venue.photos.attached? %>
-            <%= cl_image_tag venue.photos.first.key, crop: :fill %>
-          <% else%>
-            <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
-          <% end %>
-          <div class="card-venue-infos">
-            <div>
-              <div class="rating-overview">
-                <i class="fas fa-paw"></i>
-                <p class="avg-rating">
-                  <% if venue.reviews.map { |review| review.rating }.empty? %>
-                    <em>no reviews</em>
-                  <% else %>
-                    <%= ((venue.reviews.map { |review| review.rating }.sum.to_f) / venue.reviews.length).round(1) %>
+  <div class="bottom-space">
+    <div id="map"
+       style="width: 100%; height: 300px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <% @venues.each_with_index do |venue| %>
+      <% if policy(venue).show? %>
+        <%= link_to venue_path(venue.id) do  %>
+          <div class="card-venue">
+            <% if venue.photos.attached? %>
+              <%= cl_image_tag venue.photos.first.key, crop: :fill %>
+            <% else%>
+              <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
+            <% end %>
+            <div class="card-venue-infos">
+              <div>
+                <div class="rating-overview">
+                  <i class="fas fa-paw"></i>
+                  <p class="avg-rating">
+                    <% if venue.reviews.map { |review| review.rating }.empty? %>
+                      <em>no reviews</em>
+                    <% else %>
+                      <%= ((venue.reviews.map { |review| review.rating }.sum.to_f) / venue.reviews.length).round(1) %>
+                    <% end %>
+                  </p>
+                  <p>(<%= venue.reviews.length %> reviews)</p>
+                </div>
+                <h2><%= venue.name %></h2>
+                <div class="tags">
+                  <% venue.tags.each do |tag| %>
+                    <p>#<%= tag.name %></p>
                   <% end %>
-                </p>
-                <p>(<%= venue.reviews.length %> reviews)</p>
-              </div>
-              <h2><%= venue.name %></h2>
-              <div class="tags">
-                <% venue.tags.each do |tag| %>
-                  <p>#<%= tag.name %></p>
-                <% end %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
   <div>
     <% if user_signed_in? %>
       <%= render 'shared/footer' %>

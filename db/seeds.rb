@@ -11,6 +11,7 @@ require 'nokogiri'
 
 puts "Cleaning database, start fresh"
 User.destroy_all
+Tag.destroy_all
 
 ### CREATE USERS ###
 puts "creating users"
@@ -83,15 +84,23 @@ puts "There are #{Venue.count} venues"
 ### CREATE REVIEWS AND TAGS###
 puts "creating 3 reviews and 2 tags for each venue"
 venues = Venue.all
+tags = ['waterbowls', 'loud', 'dogtreats', 'friendly', 'warm', 'humanlikesfood', 'crowded', 'cozy', 'quiet',
+        'outside', 'inside', 'spacious', '€', '€€', '€€€', 'poochparty', 'humanlikesbeer']
+
+tags.map! { |tag| Tag.create!(name: tag) }
+tags = Tag.all
+puts "#{tags.count} tags have been created"
+tags.each { |tag| puts tag.name.to_s }
+
 venues.each do |venue|
-  tag_names = ['waterbowls', 'dogtreats', 'friendly', 'warm', 'humanlikesfood']
   2.times do
     venuetag = Venuetag.new
     venuetag.venue = venue
-    tag = Tag.new(name: tag_names.sample)
-    tag_names.delete(tag.name)
-    tag.save!
-    venuetag.tag = tag
+    venuetag.tag = tags.sample
+    if venue.tags.include?(venuetag.tag)
+      i = tags.index(venuetag.tag)
+      venuetag.tag = i < (tags.length - 1) ? tags[i + 1] : tags.first
+    end
     venuetag.save!
   end
 
@@ -99,7 +108,7 @@ venues.each do |venue|
   3.times do
     review = Review.new(
       rating: (3..5).to_a.sample,
-      comment: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."
+      comment: Faker::Restaurant.review
     )
     review.venue = venue
     review.user = users.sample

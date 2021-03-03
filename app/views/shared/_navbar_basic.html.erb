@@ -1,17 +1,24 @@
 <div class="navbar navbar-lewagon venue-review-show">
-  <div class= "d-flex justify-content-between w-100 mt-2 mb-3">
-    <%= link_to 'Back', :back, class: "link" %>
-    <h2>
-      <% if request.fullpath.match('venues\/\d+') %>
-        <%= @venue.name %>
-      <% elsif request.fullpath.match('reviews\/\d+') %>
-        <%= @review.user.dog_name %>
+  <div class= "d-flex align-items-center w-100 mt-2 mb-3">
+    <div class="left flex">
+      <%= link_to 'Back', :back, class: "link" %>
+    </div>
+    <div class="center flex">
+      <h2>
+        <% if request.fullpath.match('venues\/\d+') %>
+          <%= @venue.name %>
+        <% elsif request.fullpath.match('reviews\/\d+') %>
+          <%= @review.user.dog_name %>
+        <% end %>
+      </h2>
+    </div>
+    <div class="right flex">
+      <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, class: "link", method: :delete %>
+      <% else %>
+          <%= link_to "Login", new_user_session_path, class: "link" %>
       <% end %>
-    </h2>
-    <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-    <% end %>
-   </div>
+    </div>
+  </div>
 </div>
+

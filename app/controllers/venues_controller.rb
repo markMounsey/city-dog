@@ -3,7 +3,11 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: [:show]
 
   def index
-    @venues = policy_scope(Venue).order(created_at: :desc)
+    if params[:query].present?
+      @venues = policy_scope(Tag).find_by_name(params[:query]).venues unless params[:query].empty?
+    else
+      @venues = policy_scope(Venue).order(created_at: :desc)
+    end
     @markers = @venues.geocoded.map do |venue|
       {
         lat: venue.latitude,

@@ -4,7 +4,6 @@
     <%= f.input :description %>
     <%= f.input :address %>
     <%= f.input :photos, as: :file %>
-    <%= f.input :tags, collection: Tag.distinct.pluck(:name).sort  %>
     <%= f.input :category, collection: Venue::CATEGORIES %>
     <%= f.button :submit, 'SAVE', class: 'btn-block btn-lp' %>
   <% end %>

@@ -8,6 +8,7 @@ class VenuesController < ApplicationController
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end
+    @tags = policy_scope(Tag).order(created_at: :desc)
     @markers = @venues.geocoded.map do |venue|
       {
         lat: venue.latitude,

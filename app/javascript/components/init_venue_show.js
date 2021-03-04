@@ -29,8 +29,10 @@ const showAddTagForm = () => {
   const tagBtn = document.getElementById('tag-btn');
   const formBox = document.getElementById('form-box');
   const form = document.querySelector('.form-inline');
+  const selectFeild = document.querySelector("#venuetag_tag_id")
 
   if(tagBtn) {
+
     tagBtn.addEventListener('click', () => {
       tagBtn.classList.toggle('hidden');
       formBox.classList.toggle('hidden');
@@ -40,7 +42,14 @@ const showAddTagForm = () => {
       formBox.classList.toggle('hidden');
       tagBtn.classList.toggle('hidden');
     });
+
+    form.addEventListener('blur', () => {
+      formBox.classList.toggle('hidden');
+      tagBtn.classList.toggle('hidden');
+    });
   }
+
+
 
 }
 

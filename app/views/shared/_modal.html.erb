@@ -13,9 +13,7 @@
       <div class="modal-body">
         <div class="modal-filter-grid">
           <% @tags.each do |tag| %>
-            <button type="button" class="btn-lp modal-filter-btn">
-              <%= tag.name %>
-            </button>
+            <%= link_to tag.name, venues_path(query: tag.name), class: "btn-tag modal-filter-btn" %>
           <% end %>
         </div>
       </div>

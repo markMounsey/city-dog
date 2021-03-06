@@ -1,12 +1,17 @@
-.show-img img {
-  width: 100%;
-  height: 216px;
-  object-fit: cover;
-  border-radius: 4px;
+#rev-img img {
+  border: none;
 }
 
 .hold-here {
   position: relative;
   top: -105px;
   z-index: 2;
+}
+
+.show-text {
+  h2{
+    a {
+      color: $verdigris;
+    }
+  }
 }

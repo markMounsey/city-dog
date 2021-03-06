@@ -21,7 +21,7 @@
     <% else %>
         <% if request.fullpath == "/" %>
           <%= render 'shared/navbar_root' %>
-        <% elsif request.fullpath.match('venues($|\?.+)') || request.fullpath.match('venues\?.+') %>
+        <% elsif request.fullpath.match('venues($|\?.+)') %>
           <%= render 'shared/navbar_index' %>
         <% elsif request.fullpath.match('venues\/\d+') || request.fullpath.match('reviews\/\d+') %>
           <%= render 'shared/navbar_basic' %>

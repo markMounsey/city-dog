@@ -1,9 +1,7 @@
-<div class="container">
-  <h2><%= venue.name %></h2>
-  <div class="rating-overview">
-    <i class="fas fa-paw"></i>
-    <p class="avg-rating">
-      <p><%= ((venue.reviews.map { |review| review.rating }.sum.to_f) / venue.reviews.length).round(1) %></p>
+<div class='window'>
+  <div class="title-rate">
+    <h2><%= venue.name %></h2>
+    <p><%= ((venue.reviews.map { |review| review.rating }.sum.to_f) / venue.reviews.length).round(1) %> <i class="fas fa-paw"></i></p>
   </div>
   <p><%= venue.address %></p>
   <%= link_to "SEE #{venue.category.upcase}", venue_path(venue.id), class: "btn-block btn-lp" %>

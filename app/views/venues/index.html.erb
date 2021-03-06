@@ -24,7 +24,13 @@
                       <%= ((venue.reviews.map { |review| review.rating }.sum.to_f) / venue.reviews.length).round(1) %>
                     <% end %>
                   </p>
-                  <p>(<%= venue.reviews.length %> reviews)</p>
+                  <p>(<%= venue.reviews.length %>
+                    <% if venue.reviews.length < 2 %>
+                      review)
+                    <% else %>
+                      reviews)
+                    <% end %>
+                    </p>
                 </div>
                 <h2 class='venue-name'><%= venue.name %></h2>
                 <div class="tags">

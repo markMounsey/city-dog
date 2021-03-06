@@ -3,7 +3,7 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
+  text-align: left;
   .window {
     padding: 8px;
     a {
@@ -12,7 +12,7 @@
   }
 
   p {
-    margin: .5em;
+    margin-top: .5em;
   }
   .title-rate {
     margin-top: 8px;

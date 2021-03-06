@@ -29,7 +29,7 @@ const showAddTagForm = () => {
   const tagBtn = document.getElementById('tag-btn');
   const formBox = document.getElementById('form-box');
   const form = document.querySelector('.form-inline');
-  const selectFeild = document.querySelector("#venuetag_tag_id")
+  const offToggle = document.querySelector("#tag-form > a");
 
   if(tagBtn) {
 
@@ -43,7 +43,7 @@ const showAddTagForm = () => {
       tagBtn.classList.toggle('hidden');
     });
 
-    form.addEventListener('blur', () => {
+    offToggle.addEventListener('click', () => {
       formBox.classList.toggle('hidden');
       tagBtn.classList.toggle('hidden');
     });

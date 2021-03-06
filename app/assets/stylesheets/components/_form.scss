@@ -1,4 +1,13 @@
 #tag-form {
+  i {
+    position: absolute;
+    color: $bittersweet;
+    align-items: center;
+    margin-left: 16px;
+    z-index: 4;
+
+  }
+
   div {
     margin: auto;
     input {

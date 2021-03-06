@@ -29,3 +29,19 @@
   text-decoration: none;
   border: 2px solid $verdigris;
 }
+
+.btn-tag {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: rgba(0, 175, 185, .8);
+  transition: background 0.2s ease;
+  text-align: center;
+}
+
+.btn-tag:hover {
+  background: $white;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: 2px solid $cg-blue;
+}

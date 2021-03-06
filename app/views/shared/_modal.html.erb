@@ -11,11 +11,13 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <% @tags.each do |tag| %>
-          <button type="button" class="btn-block btn-lp">
-            <%= tag.name %>
-          </button>
-        <% end %>
+        <div class="modal-filter-grid">
+          <% @tags.each do |tag| %>
+            <button type="button" class="btn-lp modal-filter-btn">
+              <%= tag.name %>
+            </button>
+          <% end %>
+        </div>
       </div>
 
       <!-- Modal footer -->

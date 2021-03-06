@@ -6,7 +6,7 @@
       <% else %>
         <img src="https://source.unsplash.com/200x200/?dog" alt="" style="width:200px;height:200px;crop:fill" class="avatar-bordered">
       <% end %>
-    </div>    
+    </div>
 
     <div class="container">
       <div class="paw">
@@ -15,10 +15,10 @@
         <% end %>
       </div>
       <div class="show-text">
-        <h2><%= @review.venue.name %></h2>
+        <h2><%= link_to @review.venue.name, venue_path(@review.venue.id) %></h2>
         <p><%= @review.comment %></p>
       </div>
-      <div class="show-img">
+      <div id='rev-img' class="show-img">
         <% if @review.photo.attached? %>
           <%= cl_image_tag @review.photo.key, crop: :fill %>
         <% else %>
@@ -33,7 +33,7 @@
         <% if policy(Review).edit? %>
           <%= link_to "UPDATE", edit_review_path, class: "btn-block btn-lp" %>
         <% else %>
-          <%= link_to "ADD ANOTHER REVIEW", new_venue_review_path(@review.venue.id), class: "btn-block btn-lp" %> 
+          <%= link_to "ADD ANOTHER REVIEW", new_venue_review_path(@review.venue.id), class: "btn-block btn-lp" %>
         <% end %>
       </div>
   </div>

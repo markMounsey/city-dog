@@ -9,7 +9,7 @@
           <%= @venue.name %>
         <% elsif request.fullpath.match('reviews\/\d+') %>
           <%= @review.user.dog_name %>
-        <% else %>
+        <% elsif request.fullpath.match('venues\/new') %>
           <%= 'Add Venue' %>
         <% end %>
       </h2>

@@ -7,15 +7,15 @@
         <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
       <% end %>
     </div>
-    <div class="tags-box">
-      <div id="add-new", class="tag">
-        <%= link_to 'Add Tag', 'javascript:;', id: 'tag-btn' %>
-        <div id='form-box'class="hidden">
-          <% if policy(Venuetag).create? %>
-            <%= render './venuetags/form' %>
-          <% end %>
-        </div>
+    <div id="add-new" class="tag">
+      <%= link_to 'ADD TAG', 'javascript:;', class: 'btn-block btn-lp', id: 'tag-btn' %>
+      <div id='form-box' class="hidden">
+        <% if policy(Venuetag).create? %>
+          <%= render './venuetags/form' %>
+        <% end %>
       </div>
+    </div>
+    <div class="tags-box">
       <% @venue.tags.sort.reverse.each do |tag| %>
         <p class="tag">#<%= tag.name %></p>
       <% end %>

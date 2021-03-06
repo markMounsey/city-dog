@@ -1,22 +1,26 @@
 ///////// INDEX PAGE VENUE CARDS /////////
 .card-venue {
   overflow: hidden;
-  background: white;
+  background: rgba(0, 175, 185, .2);
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 16px;
+  padding: 8px;
+  border-radius: 4px;
 }
 
 .card-venue > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 4px;
 }
 
-.card-venue h2 {
+.venue-name {
+  margin-top: .7em !important;
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-  color: black;
+  color: $bittersweet;
 }
 
 .card-venue p {
@@ -33,7 +37,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
-  .tags, .rating-overview {
+  .rating-overview {
     display: flex;
     p, i {
       margin-right: 8px;
@@ -43,41 +47,19 @@
       color: $yellow;
     }
   }
+  .tags {
+    margin-top: 1em;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      margin-right: 1.5em;
+    }
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    // grid-gap: 8px;
+    // grid-row-gap: 0;
+  }
 }
-///////////////////////////////////////////
 
-///////// REVIEW INDEX LIST CARDS /////////
-// .card-review {
-//   height: 84px;
-//   background: white;
-//   display: flex;
-//   margin: 8px 0;
-// }
-
-// .card-review img {
-//   height: 100%;
-//   width: 84px;
-//   object-fit: cover;
-// }
-
-// .card-review h2 {
-//   font-size: 18px;
-//   font-weight: bold;
-//   margin: 0;
-// }
-
-// .card-review p {
-//   font-size: 14px;
-//   line-height: 1.4;
-//   opacity: .7;
-//   margin-bottom: 0;
-//   margin-top: 4px;
-// }
-
-// .card-review .card-review-infos {
-//   padding: 8px;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
-
-///////////////////////////////////////////

@@ -1,11 +1,13 @@
 #tag-form {
-  i {
-    position: absolute;
-    color: $bittersweet;
-    align-items: center;
-    margin-left: 16px;
-    z-index: 4;
-
+  position: relative;
+  a {
+    i {
+      color: $bittersweet;
+      position: absolute;
+      font-size: 24px;
+      left: 8px;
+      top: 30%;
+    }
   }
 
   div {
@@ -17,66 +19,4 @@
       border: none;
     }
   }
-
 }
-
-
-// .new-cocktail {
-//   border-radius: 16px;
-//   width: 400px;
-//   margin: 0 auto;
-
-//   .add-drink {
-//     padding: 4px;
-//     display: flex;
-//     align-items: center;
-//   }
-//   form {
-//     padding: 8px;
-
-//     .form-btn {
-//       display: inline-block;
-//       margin: 8px;
-//       background-color: $gold;
-//       padding: 4px;
-//       border-radius: 4px;
-//       border: none;
-//       color: white;
-//       font-weight: bold;
-//       font-size: ($spacer*2);
-//       letter-spacing: 1px;
-//       box-shadow: 2px 4px 15px rgba(0,0,0,0.4);
-//       &:hover {
-//         color: white;
-//         box-shadow: 1px 2px 16px $gold;
-//       }
-//     }
-
-//     .drink-name-input {
-//       background-color: rgba(0,0,0,.5);
-//       font-size: 32px;
-//       text-align: center;
-//       box-shadow: 0 0 0 0.2rem $gold;
-//       border-radius: ($spacer*1.5);
-//       &:active, &:focus {
-//         outline: 0;
-//         box-shadow: 0 0 0 0.2rem $gold;
-//         background-color: rgba(0,0,0,.5);
-//         border: none;
-//         font-size: 32px;
-//         padding: ($spacer*1.5);
-//         border-radius: ($spacer*1.5);
-//         color: $gold;
-//         text-shadow: 8px 8px 12px black;
-//       }
-//     }
-//     input {
-//       font-size: 20px;
-//       letter-spacing: 1px;
-//       font-weight: bold;
-//       border: none;
-//       color: $gold;
-//       text-shadow: 1px 1px 4px black;
-//     }
-//   }
-// }

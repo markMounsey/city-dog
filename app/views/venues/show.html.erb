@@ -7,7 +7,7 @@
         <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
       <% end %>
     </div>
-    <div id="add-new" class="tag">
+    <div id="add-new">
       <%= link_to 'ADD TAG', 'javascript:;', class: 'btn-block btn-lp', id: 'tag-btn' %>
       <div id='form-box' class="hidden">
         <% if policy(Venuetag).create? %>

@@ -1,13 +1,14 @@
 <div class="navbar navbar-lewagon">
   <div class="d-flex justify-content-end w-100">
     <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Log out", destroy_user_session_path, class: "nav-link pb-0", method: :delete %>
     <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <%= link_to "Login", new_user_session_path, class: "nav-link pb-0" %>
     <% end %>
    </div>
   <div class="w-100">
     <h1>CityDog</h1>
-    <p>For the dog that likes a day out as much as you</p>
+    <p>Dog friendly venues</p>
+    <p><em>So your furry friend can come too</em></p>
   </div>
 </div>

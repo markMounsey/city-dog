@@ -24,12 +24,10 @@ const toggleDisplay = () => {
 
 const showAddTagForm = () => {
 
-  // check to make sure the right elements are being selected!!
-  // const addBtn = document.getElementById('add-new');
   const tagBtn = document.getElementById('tag-btn');
   const formBox = document.getElementById('form-box');
   const form = document.querySelector('.form-inline');
-  const offToggle = document.querySelector("#tag-form > a");
+  const offToggle = document.querySelector("#tag-form > .form-inline > a");
 
   if(tagBtn) {
 

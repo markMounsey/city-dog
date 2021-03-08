@@ -7,16 +7,16 @@
         <% else%>
           <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
         <% end %>
-        <%= link_to 'Map', 'javascript:;', class: "btn-lp img-toggle" %>
+        <%= link_to 'Map', 'javascript:;', class: "img-toggle" %>
       </div>
       <div class="map-wrapper hidden">
         <div id="map"
-             class= "m-0"
+             class= "m-0 white-border"
            style="width: 100%; height: 216px;"
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-        <%= link_to 'Pic', 'javascript:;', class: "btn-lp tog-back" %>
+        <%= link_to 'Pic', 'javascript:;', class: "tog-back" %>
       </div>
     </div>
     <div id="add-new">

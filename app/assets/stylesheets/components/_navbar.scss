@@ -49,13 +49,10 @@ a:hover {
 }
 
 .venue-review-show {
-  height: 25vh;
+  height: 20vh;
   align-items: start;
 }
 
-@media screen {
-
-}
 
 .flex {
   flex: 1;
@@ -74,4 +71,11 @@ a:hover {
 
 .right {
   justify-content: flex-end;
+}
+
+@media(max-width: 360px) {
+    .venue-review-show {
+    height: 25vh;
+    align-items: start;
+  }
 }

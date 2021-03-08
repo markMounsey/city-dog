@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="hold-here">
+  <div class="hold-here-rev">
     <div class="d-flex justify-content-center w-100 mt-2 mb-3">
       <% if @review.user.photo.attached? %>
         <%= cl_image_tag @review.user.photo.key, width: 200, height: 200, crop: :fill, class: "avatar-bordered" %>

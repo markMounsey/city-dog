@@ -1,8 +1,8 @@
 <%= simple_form_for [@venue, @venuetag], remote: true, html: { class: 'form-inline', id: 'tag-form' } do |f| %>
-  <%= link_to 'javascript:;', id: 'off-toggle' do %>
-    <i class="far fa-window-close"></i>
-  <% end %>
   <div class='form-inline'>
+    <%= link_to 'javascript:;', id: 'off-toggle' do %>
+      <i class="far fa-window-close"></i>
+    <% end %>
     <%= f.association :tag, collection: Tag.order('name ASC'), label: false %>
     <%= f.submit "ADD", class: 'btn-lp'%>
   </div>

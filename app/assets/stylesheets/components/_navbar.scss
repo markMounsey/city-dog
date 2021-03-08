@@ -15,7 +15,7 @@
   font-size: 36px;
   color: white;
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: .2em;
 }
 
 .navbar-lewagon h2 {
@@ -51,6 +51,10 @@ a:hover {
 .venue-review-show {
   height: 20vh;
   align-items: start;
+}
+
+@media screen {
+
 }
 
 .flex {

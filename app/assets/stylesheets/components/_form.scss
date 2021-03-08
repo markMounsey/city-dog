@@ -20,3 +20,28 @@
     }
   }
 }
+
+@media(max-width: 360px) {
+  #tag-form {
+    position: relative;
+    a {
+      i {
+        color: $bittersweet;
+        position: absolute;
+        font-size: 24px;
+        left: .1em;
+        top: 30%;
+      }
+    }
+
+    div {
+      margin: auto;
+      input {
+        margin: 8px;
+      }
+      input[type=submit] {
+        border: none;
+      }
+    }
+  }
+}

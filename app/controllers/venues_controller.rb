@@ -14,7 +14,7 @@ class VenuesController < ApplicationController
 
     if params[:search]
       @filter = params[:search]['all_tags'].reject(&:empty?)
-      @venues = @filter.empty? ? Venue.all : Venue.joins(:tags).where(tags: { name: @filter })
+      @venues = policy_scope(Venue).joins(:tags).where(tags: { name: @filter }) unless params[:query].empty?
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end

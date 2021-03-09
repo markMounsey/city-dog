@@ -12,7 +12,7 @@ class VenuesController < ApplicationController
 
     if params[:search]
       @filter = params[:search]['all_tags'].reject(&:empty?)
-      @venues = @filter.empty? ? Venue.all : # THIS IS FROM THE GEM, DOESNT WORK.... NEW SEARCH FILTER THINGVenue.all.tagged_with(@filter, any: true)
+      @venues = @filter.empty? ? Venue.all : Venue.all.tagged_with(@filter, any: true)
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end

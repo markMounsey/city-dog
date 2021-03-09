@@ -53,9 +53,6 @@ a:hover {
   align-items: start;
 }
 
-@media screen {
-
-}
 
 .flex {
   flex: 1;
@@ -74,4 +71,11 @@ a:hover {
 
 .right {
   justify-content: flex-end;
+}
+
+@media(max-width: 360px) {
+    .venue-review-show {
+    height: 25vh;
+    align-items: start;
+  }
 }

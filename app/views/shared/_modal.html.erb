@@ -11,16 +11,24 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="modal-filter-grid">
-          <% @tags.each do |tag| %>
-            <%= link_to tag.name, venues_path(query: tag.name), class: "btn-tag modal-filter-btn" %>
-          <% end %>
-        </div>
+        <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
+          <div class="modal-filter-grid">
+
+  <!--           % @tags.each do |tag| %>
+              %= link_to tag.name, venues_path(query: tag.name), class: "btn-tag modal-filter-btn" %>
+            % end %> -->
+
+                <%= f.input :all_tags, label: "All Tags",  collection: $tagnames, as: :check_boxes %>
+
+
+          </div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn-block btn-lg" data-dismiss="modal">Close</button>
+        <%= f.submit "Filter Venues", class: "btn-block btn-lp" %>
+        <!-- <button type="button" class="btn-block btn-lg" data-dismiss="modal">Close</button> -->
+        <% end %>
       </div>
 
     </div>

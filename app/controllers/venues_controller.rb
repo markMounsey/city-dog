@@ -3,12 +3,19 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: [:show]
 
   def index
-    if params[:query].present?
-      @venues = policy_scope(Tag).find_by_name(params[:query]).venues unless params[:query].empty?
+    # if params[:query].present?
+    #   @venues = policy_scope(Tag).find_by_name(params[:query]).venues unless params[:query].empty?
+    # else
+    #   @venues = policy_scope(Venue).order(created_at: :desc)
+    # end
+    # @tags = policy_scope(Tag).order(created_at: :desc)
+
+    if params[:search]
+      @filter = params[:search]['all_tags'].reject(&:empty?)
+      @venues = @filter.empty? ? Venue.all : # THIS IS FROM THE GEM, DOESNT WORK.... NEW SEARCH FILTER THINGVenue.all.tagged_with(@filter, any: true)
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end
-    @tags = policy_scope(Tag).order(created_at: :desc)
     @markers = @venues.geocoded.map do |venue|
       {
         lat: venue.latitude,

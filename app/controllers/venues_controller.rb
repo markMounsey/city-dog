@@ -10,9 +10,11 @@ class VenuesController < ApplicationController
     # end
     # @tags = policy_scope(Tag).order(created_at: :desc)
 
+    # Venue.joins(:tags).where(tags: { name: ["waterbowls", "outside"] })  
+
     if params[:search]
       @filter = params[:search]['all_tags'].reject(&:empty?)
-      @venues = @filter.empty? ? Venue.all : Venue.all.tagged_with(@filter, any: true)
+      @venues = @filter.empty? ? Venue.all : Venue.joins(:tags).where(tags: { name: @filter })
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end

@@ -20,6 +20,13 @@ class VenuesController < ApplicationController
 
   def show
     authorize @venue
+    @markers = @venue.geocode.map do
+      {
+        lat: @venue.latitude,
+        lng: @venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
+      }
+    end
     @venuetag = Venuetag.new
   end
 

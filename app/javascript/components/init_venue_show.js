@@ -23,14 +23,12 @@ const toggleDisplay = () => {
 }
 
 const showAddTagForm = () => {
-
   const tagBtn = document.getElementById('tag-btn');
   const formBox = document.getElementById('form-box');
   const form = document.querySelector('.form-inline');
   const offToggle = document.querySelector("#tag-form > .form-inline > a");
 
   if(tagBtn) {
-
     tagBtn.addEventListener('click', () => {
       tagBtn.classList.toggle('hidden');
       formBox.classList.toggle('hidden');
@@ -46,10 +44,27 @@ const showAddTagForm = () => {
       tagBtn.classList.toggle('hidden');
     });
   }
+}
 
+const togglePicMap = () => {
+  const photo = document.querySelector('.show-img-ven');
+  const map = document.querySelector('.map-wrapper');
+  const imgToggle = document.querySelector('.img-toggle');
+  const toggleBack = document.querySelector('.tog-back')
 
+  if (imgToggle) {
+    imgToggle.addEventListener('click', () => {
+      photo.classList.toggle('hidden');
+      map.classList.toggle('hidden');
+    });
 
+    toggleBack.addEventListener('click', () => {
+      map.classList.toggle('hidden');
+      photo.classList.toggle('hidden');
+    })
+  }
 }
 
 export { toggleDisplay };
 export { showAddTagForm };
+export { togglePicMap };

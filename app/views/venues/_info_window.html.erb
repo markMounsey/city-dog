@@ -4,6 +4,8 @@
     <p><%= ((venue.reviews.map { |review| review.rating }.sum.to_f) / venue.reviews.length).round(1) %> <i class="fas fa-paw"></i></p>
   </div>
   <p><%= venue.address %></p>
-  <%= link_to "SEE #{venue.category.upcase}", venue_path(venue.id), class: "btn-block btn-lp" %>
+  <% unless request.fullpath.match('venues\/\d+') %>
+    <%= link_to "SEE #{venue.category.upcase}", venue_path(venue.id), class: "btn-block btn-lp" %>
+  <% end %>
 </div>
 

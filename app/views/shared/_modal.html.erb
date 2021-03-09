@@ -12,8 +12,9 @@
       <!-- Modal body -->
       <div class="modal-body">
         <div class="modal-filter-grid">
-          <% @tags.each do |tag| %>
-            <%= link_to tag.name, venues_path(query: tag.name), class: "btn-tag modal-filter-btn" %>
+          <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
+            <%= f.input :all_tags, label: "All Tags",  collection: $tagnames, as: :check_boxes %>
+            <%= f.submit "Filter Venues", class: "btn-block btn-lp" %>
           <% end %>
         </div>
       </div>

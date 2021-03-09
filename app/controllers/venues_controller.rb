@@ -3,8 +3,9 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: [:show]
 
   def index
-    if params[:query].present?
-      @venues = policy_scope(Tag).find_by_name(params[:query]).venues unless params[:query].empty?
+    if params[:search]
+      @filter = params[:search]['all_tags'].reject(&:empty?)
+      @venues = policy_scope(Venue).joins(:tags).where(tags: { name: @filter }) unless @filter.empty?
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end

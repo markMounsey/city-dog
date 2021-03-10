@@ -3,20 +3,30 @@
   align-items: center;
   margin-bottom: 16px;
   background: transparent;
-  padding: 2px 4px;
+
+  .av-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 
 
 #link-review {
   .notification .notification-content {
     flex-grow: 1;
-    padding: 0 16px;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
   }
 
   .name-date-rev {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4px;
+    align-items: center;
     color: $verdigris;
     font-size: 14px;
 
@@ -43,6 +53,7 @@
   .notification small {
     color: #999999;
     font-weight: bold;
+    text-align: center;
   }
 
 }

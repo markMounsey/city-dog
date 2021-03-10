@@ -11,7 +11,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="modal-filter-grid">
+        <div>
           <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
             <%= f.input :all_tags, label: "All Tags",  collection: $tagnames, as: :check_boxes %>
             <%= f.submit "Filter Venues", class: "btn-block btn-lp" %>

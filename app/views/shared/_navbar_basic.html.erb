@@ -16,9 +16,9 @@
     </div>
     <div class="right flex">
       <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, class: "link", method: :delete %>
+          <%= link_to raw('<i class="fas fa-sign-out-alt"></i>'), destroy_user_session_path, method: :delete %>
       <% else %>
-          <%= link_to "Login", new_user_session_path, class: "link" %>
+          <%= link_to raw('<i class="fas fa-sign-in-alt"></i>'), new_user_session_path %>
       <% end %>
     </div>
   </div>

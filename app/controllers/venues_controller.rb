@@ -3,18 +3,9 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: [:show]
 
   def index
-    # if params[:query].present?
-    #   @venues = policy_scope(Tag).find_by_name(params[:query]).venues unless params[:query].empty?
-    # else
-    #   @venues = policy_scope(Venue).order(created_at: :desc)
-    # end
-    # @tags = policy_scope(Tag).order(created_at: :desc)
-
-    # Venue.joins(:tags).where(tags: { name: ["waterbowls", "outside"] })  
-
     if params[:search]
       @filter = params[:search]['all_tags'].reject(&:empty?)
-      @venues = policy_scope(Venue).joins(:tags).where(tags: { name: @filter }) unless params[:query].empty?
+      @venues = policy_scope(Venue).joins(:tags).where(tags: { name: @filter }) unless @filter.empty?
     else
       @venues = policy_scope(Venue).order(created_at: :desc)
     end
@@ -29,6 +20,13 @@ class VenuesController < ApplicationController
 
   def show
     authorize @venue
+    @markers = @venue.geocode.map do
+      {
+        lat: @venue.latitude,
+        lng: @venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
+      }
+    end
     @venuetag = Venuetag.new
   end
 

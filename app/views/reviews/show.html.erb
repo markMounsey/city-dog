@@ -18,7 +18,7 @@
         <h2><%= link_to @review.venue.name, venue_path(@review.venue.id) %></h2>
         <p><%= @review.comment %></p>
       </div>
-      <div id='rev-img' class="show-img">
+      <div id='rev-img' class="show-img-rev">
         <% if @review.photo.attached? %>
           <%= cl_image_tag @review.photo.key, crop: :fill %>
         <% else %>

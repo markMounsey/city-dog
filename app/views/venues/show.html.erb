@@ -1,11 +1,23 @@
 <div class="container">
   <div class="hold-here">
-    <div class="show-img">
-      <% if @venue.photos.attached? %>
-        <%= cl_image_tag @venue.photos.first.key, crop: :fill %>
-      <% else%>
-        <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
-      <% end %>
+    <div class="img-map-box">
+      <div class="show-img-ven">
+        <% if @venue.photos.attached? %>
+          <%= cl_image_tag @venue.photos.first.key, crop: :fill %>
+        <% else%>
+          <img src="https://source.unsplash.com/500x400/?cafe" alt="a cafe">
+        <% end %>
+        <%= link_to 'Map', 'javascript:;', class: "img-toggle" %>
+      </div>
+      <div class="map-wrapper hidden">
+        <div id="map"
+             class= "m-0 white-border"
+           style="width: 100%; height: 216px;"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <%= link_to 'Picture', 'javascript:;', class: "tog-back" %>
+      </div>
     </div>
     <div id="add-new">
       <%= link_to 'ADD TAG', 'javascript:;', class: 'btn-block btn-lp', id: 'tag-btn' %>
@@ -61,7 +73,6 @@
         </div>
     </div>
   </div>
-
   <div class="container foot-bar">
     <% if policy(Review).create? %>
       <%= link_to 'WRITE REVIEW', new_venue_review_path(@venue.id), class: "btn-block btn-lp" %>

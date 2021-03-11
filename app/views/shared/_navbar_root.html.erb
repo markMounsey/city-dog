@@ -1,9 +1,9 @@
 <div class="navbar navbar-lewagon">
   <div class="d-flex justify-content-end w-100">
     <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, class: "nav-link pb-0", method: :delete %>
-    <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav-link pb-0" %>
+        <%= link_to raw('<i class="fas fa-sign-out-alt"></i>'), destroy_user_session_path, method: :delete, class: "nav-link pb-0" %>
+      <% else %>
+          <%= link_to raw('<i class="fas fa-sign-in-alt"></i>'), new_user_session_path, class: "nav-link pb-0" %>
     <% end %>
    </div>
   <div class="w-100">

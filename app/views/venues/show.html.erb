@@ -45,18 +45,26 @@
           <% @venue.reviews.each do |review| %>
             <%= link_to review_path(review), id: "link-review" do %>
               <div class="notification">
-                <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
+                <div class="av-wrapper">
+                  <div class="avatar-large">
+                    <% if review.user.photo.attached? %>
+                      <%= cl_image_tag review.user.photo.key, crop: :fill, class: "avatar-large"%>
+                    <% else %>
+                      <img src="https://source.unsplash.com/56x56/?dog" style="crop:fill" class="avatar-large">
+                    <% end %>
+                  </div>
+                </div>
                 <div class="notification-content">
-                  <div class="name-date-rev">
-                    <div>by: <%= review.user.dog_name %></div>
+                    <div class="name-date-rev">
+                      <div>by: <%= review.user.dog_name %></div>
                       <div class="paw">
                         <% review.rating.times do %>
                           <i class="fas fa-paw"></i>
                         <% end %>
                       </div>
-                      <div><small><%= review.created_at.strftime("%B %-d, %Y") %></small><!-- review.time --></div>
-                  </div>
-                  <p class='review-comment'><%= review.comment %></p>
+                      <small><%= review.created_at.strftime("%B #{review.created_at.day.ordinalize}") %></small>
+                    </div>
+                    <p class='review-comment'><%= review.comment %></p>
                 </div>
               </div>
             <% end %>
@@ -64,9 +72,41 @@
         </div>
         <div class="photos hidden">
           <% if @venue.photos.attached? %>
-            <% @venue.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill %>
-            <% end %>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <% @venue.photos.each do |photo| %>
+                  <% slide = 0 %>
+                  <% if @venue.photos.first.id == photo.id %>
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<% "#{slide}" %>, class="active"></li>
+                    <% slide += 1 %>
+                  <% else %>
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<% "#{slide}" %>></li>
+                    <% slide += 1  %>
+                  <% end %>
+                <% end %>
+              </ol>
+              <div class="carousel-inner">
+                <% @venue.photos.each do |photo| %>
+                  <% if @venue.photos.first.id == photo.id %>
+                    <div class="carousel-item active">
+                      <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100" %>
+                    </div>
+                  <% else %>
+                    <div class="carousel-item">
+                      <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100" %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           <% else%>
             <em>No photos of this venue have been shared.</em>
           <% end %>
@@ -79,4 +119,3 @@
     <% end %>
   </div>
 </div>
-

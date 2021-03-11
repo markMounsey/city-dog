@@ -47,7 +47,11 @@
               <div class="notification">
                 <div class="av-wrapper">
                   <div class="avatar-large">
-                    <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-large" %>
+                    <% if review.user.photo.attached? %>
+                      <%= cl_image_tag review.user.photo.key, crop: :fill, class: "avatar-large"%>
+                    <% else %>
+                      <img src="https://source.unsplash.com/56x56/?dog" style="crop:fill" class="avatar-large">
+                    <% end %>
                   </div>
                 </div>
                 <div class="notification-content">

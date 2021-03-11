@@ -45,18 +45,26 @@
           <% @venue.reviews.each do |review| %>
             <%= link_to review_path(review), id: "link-review" do %>
               <div class="notification">
-                <%= cl_image_tag review.photo.key, crop: :fill, class: "avatar-square" %>
+                <div class="av-wrapper">
+                  <div class="avatar-large">
+                    <% if review.user.photo.attached? %>
+                      <%= cl_image_tag review.user.photo.key, crop: :fill, class: "avatar-large"%>
+                    <% else %>
+                      <img src="https://source.unsplash.com/56x56/?dog" style="crop:fill" class="avatar-large">
+                    <% end %>
+                  </div>
+                </div>
                 <div class="notification-content">
-                  <div class="name-date-rev">
-                    <div>by: <%= review.user.dog_name %></div>
+                    <div class="name-date-rev">
+                      <div>by: <%= review.user.dog_name %></div>
                       <div class="paw">
                         <% review.rating.times do %>
                           <i class="fas fa-paw"></i>
                         <% end %>
                       </div>
-                      <div><small><%= review.created_at.strftime("%B %-d, %Y") %></small><!-- review.time --></div>
-                  </div>
-                  <p class='review-comment'><%= review.comment %></p>
+                      <small><%= review.created_at.strftime("%B #{review.created_at.day.ordinalize}") %></small>
+                    </div>
+                    <p class='review-comment'><%= review.comment %></p>
                 </div>
               </div>
             <% end %>

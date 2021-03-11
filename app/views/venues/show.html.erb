@@ -65,6 +65,18 @@
         <div class="photos hidden">
           <% if @venue.photos.attached? %>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <% @venue.photos.each do |photo| %>
+                  <% slide = 0 %>
+                  <% if @venue.photos.first.id == photo.id %>
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<% "#{slide}" %>, class="active"></li>
+                    <% slide += 1 %>
+                  <% else %>
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<% "#{slide}" %>></li>
+                    <% slide += 1  %>
+                  <% end %>
+                <% end %>
+              </ol>
               <div class="carousel-inner">
                 <% @venue.photos.each do |photo| %>
                   <% if @venue.photos.first.id == photo.id %>
@@ -99,4 +111,3 @@
     <% end %>
   </div>
 </div>
-

@@ -5,7 +5,7 @@
   </div>
   <p><%= venue.address %></p>
   <% unless request.fullpath.match('venues\/\d+') %>
-    <%= link_to "SEE #{venue.category.upcase}", venue_path(venue.id), class: "btn-block btn-lp" %>
+    <%= link_to "SEE VENUE", venue_path(venue.id), class: "btn-block btn-lp" %>
   <% end %>
 </div>
 

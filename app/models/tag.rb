@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
   has_many :venues, through: :venuetags
   validates :name, presence: true, uniqueness: true
 
-  $tagnames = ["€", "€€", "€€€", "cozy", "crowded", "dogtreats", "friendly", "humanlikesbeer",
+  $tagnames = ["cozy", "crowded", "dogtreats", "friendly", "humanlikesbeer",
               "humanlikesfood", "inside", "outside", "waterbowls", "loud", "quiet",
               "warm", "spacious", "poochparty"]
 end

@@ -13,7 +13,12 @@
       <div class="modal-body">
         <div>
           <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
-            <%= f.input :all_tags, label: "All Tags",  collection: $tagnames, as: :check_boxes %>
+            <%= f.input :all_tags, collection: $tagnames,
+                  as: :check_boxes,
+                  collection_wrapper_tag: 'div',
+                  item_wrapper_class: 'tag-item',
+                  input_html: {class: 'tag-selector'}
+            %>
             <%= f.submit "Filter Venues", class: "btn-block btn-lp" %>
           <% end %>
         </div>

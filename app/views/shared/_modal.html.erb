@@ -14,7 +14,7 @@
         <div class="modal-filter-grid">
           <% @tags.each do |tag| %>
             <% if tag.name.include?('€') %>
-              <%= link_to tag.name, venues_path(query: tag.name), class: "btn-tag modal-money-btn" %>
+              <%= link_to tag.name, venues_path(query: tag.name), class: "btn-tag-money modal-filter-btn" %>
             <% else %>
               <%= link_to tag.name, venues_path(query: tag.name), class: "btn-tag modal-filter-btn" %>
             <% end %>

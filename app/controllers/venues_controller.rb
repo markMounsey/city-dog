@@ -6,7 +6,7 @@ class VenuesController < ApplicationController
     if params[:query].present?
       @venues = policy_scope(Tag).find_by_name(params[:query]).venues unless params[:query].empty?
     else
-      @venues = policy_scope(Venue).order(created_at: :desc)
+      @venues = policy_scope(Venue).order(created_at: :asc)
     end
     @tags = policy_scope(Tag).order(created_at: :desc)
     @markers = @venues.geocoded.map do |venue|
